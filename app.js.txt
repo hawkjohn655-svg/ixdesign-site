@@ -1,0 +1,1238 @@
+/* IX Design SPA: routes + i18n + animations + particles + modal + slider */
+
+/* -------------------- i18n -------------------- */
+const I18N = {
+  de: {
+    brandSub: "Laser · CNC · 3D-Druck · Sublimation · Stickerei · Prototyping",
+    navHome: "Start",
+    navServices: "Leistungen",
+    navPortfolio: "Portfolio",
+    navAbout: "Über uns",
+    navContact: "Kontakt",
+    navImpressum: "Impressum",
+    navPrivacy: "Datenschutz",
+    btnContact: "Kontakt",
+    btnRequest: "Projekt anfragen",
+    close: "Schließen",
+    back: "Zurück",
+    mediaPlaceholder: "Platzhalter – später Canva/Foto",
+    modalCTA: "Ähnliches Projekt anfragen",
+    modalHint: "Hinweis: Bilder sind Platzhalter. Später echte Bilder einsetzen (Canva-Export oder Fotos).",
+    footerSub: "Design & Fertigung in Hamburg",
+
+    homeKicker: "Produktion in Hamburg · Einzelstücke & Kleinserien",
+    homeH1: "Individuelle Designs aus Laser, 3D-Druck und Sublimation",
+    homeLead: "Maßgefertigte Produkte, Werbung auf Artikeln und individuelle Sonderanfertigungen – entwickelt und produziert in Hamburg.",
+    homeCTA1: "Leistungen ansehen",
+    homeCTA2: "Projekt anfragen",
+    homeTilesTitle: "Leistungen – jede als eigene Seite",
+    homeTilesText: "Die Startseite führt direkt zu den Leistungsseiten. Jede Seite ist sauber strukturiert und hat ein klares Anfrage-CTA.",
+    homeAdsTitle: "Werbung auf Produkten",
+    homeAdsText: "Branding und Personalisierung direkt auf Artikeln – Einzelstücke und Kleinserien.",
+    homeAdsBtn: "Details",
+    homePortfolioTitle: "Ausgewählte Projekte",
+    homePortfolioText: "Portfolio als Slider. Tippen/ziehen auf Mobile, Buttons auf Desktop.",
+    homePortfolioBtn: "Alle ansehen",
+
+    servicesTitle: "Leistungen",
+    servicesText: "Jede Leistung hat eine eigene Seite: Beschreibung, Einsatzbereiche, Beispiele und Anfrage-CTA.",
+
+    portfolioTitle: "Portfolio",
+    portfolioText: "Slider mit Modal-Details. Später ersetzt ihr Titel, Text und Bilder.",
+
+    aboutTitle: "Über IX Design",
+    aboutText: "Handwerklich sauber, technisch durchdacht, optisch stark.",
+    aboutPanelTitle: "Über uns",
+    aboutP1: "IX Design ist ein Fertigungs- und Designstudio mit Fokus auf individuelle Einzelstücke und Kleinserien. Wir entwickeln Projekte von der Idee bis zum fertigen Produkt – präzise, sauber und mit einem klaren Anspruch an Qualität.",
+    aboutP2: "Unser Schwerpunkt liegt auf Laser, 3D-Druck, CNC, Sublimation sowie Textilveredelung (Stickerei und Verarbeitung). Dadurch können wir Projekte auch als Kombination aus mehreren Techniken umsetzen.",
+    aboutP3: "Neben Sonderanfertigungen realisieren wir auch Werbung auf Produkten – z. B. Feuerzeuge, Aufkleber, Stifte, Maßbänder, Textilien (Hoodies, Caps) und weitere Werbeartikel.",
+    aboutWorkTitle: "Arbeitsweise",
+    aboutWorkA: "Idee/Brief → klares Ziel",
+    aboutWorkB: "Design & Produktionsdateien (SVG/STL/DXF)",
+    aboutWorkC: "Prototyp → Test → Optimierung",
+    aboutWorkD: "Fertigung → sauberes Finish",
+
+    contactTitle: "Projekt anfragen",
+    contactText: "Kurz beschreiben – wir melden uns mit Rückfragen oder einer Einschätzung. (Formular ist Demo, später anbinden.)",
+    contactLeftTitle: "Anfrage – schnell & klar",
+    contactL1: "Welche Leistung? (Laser / CNC / 3D / Sublimation / Stickerei / Packaging)",
+    contactL2: "Material, Größe, Menge",
+    contactL3: "Deadline und Referenzen (Foto/Link)",
+    contactL4: "Ziel: Einzelstück oder Kleinserie",
+    formTitle: "Formular",
+    formName: "Name",
+    formEmail: "E-Mail",
+    formDesc: "Projektbeschreibung",
+    formMaterial: "Material (optional)",
+    formQty: "Menge (optional)",
+    formSend: "Anfrage senden",
+    formNote: "Hinweis: aktuell Demo. Später an E-Mail/WhatsApp/Service anbinden.",
+
+    notFoundTitle: "Seite nicht gefunden",
+    notFoundText: "Der Link ist nicht korrekt oder die Seite existiert nicht.",
+    notFoundHome: "Zur Startseite",
+    notFoundServices: "Leistungen",
+
+    impressumTitle: "Impressum",
+    privacyTitle: "Datenschutzerklärung",
+  },
+
+  en: {
+    brandSub: "Laser · CNC · 3D Printing · Sublimation · Embroidery · Prototyping",
+    navHome: "Home",
+    navServices: "Services",
+    navPortfolio: "Portfolio",
+    navAbout: "About",
+    navContact: "Contact",
+    navImpressum: "Imprint",
+    navPrivacy: "Privacy",
+    btnContact: "Contact",
+    btnRequest: "Request a project",
+    close: "Close",
+    back: "Back",
+    mediaPlaceholder: "Placeholder – replace with Canva/photo",
+    modalCTA: "Request a similar project",
+    modalHint: "Note: images are placeholders. Replace later with real images (Canva export or photos).",
+    footerSub: "Design & manufacturing in Hamburg",
+
+    homeKicker: "Made in Hamburg · One-offs & small batches",
+    homeH1: "Custom work with laser, 3D printing and sublimation",
+    homeLead: "Made-to-order products, branding on items and custom builds – designed and produced in Hamburg.",
+    homeCTA1: "View services",
+    homeCTA2: "Request a project",
+    homeTilesTitle: "Services – each with its own page",
+    homeTilesText: "The homepage links straight to each service page. Each page is structured and includes a clear request CTA.",
+    homeAdsTitle: "Branding on products",
+    homeAdsText: "Branding and personalization directly on items – one-offs and small batches.",
+    homeAdsBtn: "Details",
+    homePortfolioTitle: "Selected work",
+    homePortfolioText: "Portfolio slider. Drag on mobile, buttons on desktop.",
+    homePortfolioBtn: "View all",
+
+    servicesTitle: "Services",
+    servicesText: "Each service has its own page: description, typical use cases, examples and a request CTA.",
+
+    portfolioTitle: "Portfolio",
+    portfolioText: "Slider with modal details. Replace titles, copy and images later.",
+
+    aboutTitle: "About IX Design",
+    aboutText: "Clean execution, technical depth, strong visuals.",
+    aboutPanelTitle: "About us",
+    aboutP1: "IX Design is a manufacturing and design studio focused on custom one-offs and small batches. We take projects from idea to finished product with precision and a clear quality standard.",
+    aboutP2: "Our core capabilities include laser, 3D printing, CNC, sublimation and textile finishing (embroidery and processing). We often combine multiple techniques in one build.",
+    aboutP3: "We also deliver branding on products such as lighters, stickers, pens, tape measures, textiles (hoodies, caps) and other promo items.",
+    aboutWorkTitle: "How we work",
+    aboutWorkA: "Brief → clear goal",
+    aboutWorkB: "Design & production files (SVG/STL/DXF)",
+    aboutWorkC: "Prototype → test → iterate",
+    aboutWorkD: "Production → clean finish",
+
+    contactTitle: "Request a project",
+    contactText: "Describe your project briefly – we’ll reply with questions or an estimate. (Demo form, can be connected later.)",
+    contactLeftTitle: "Quick request checklist",
+    contactL1: "Which service? (Laser / CNC / 3D / Sublimation / Embroidery / Packaging)",
+    contactL2: "Material, size, quantity",
+    contactL3: "Deadline and references (photo/link)",
+    contactL4: "Goal: one-off or small batch",
+    formTitle: "Form",
+    formName: "Name",
+    formEmail: "Email",
+    formDesc: "Project description",
+    formMaterial: "Material (optional)",
+    formQty: "Quantity (optional)",
+    formSend: "Send request",
+    formNote: "Note: demo only. Can be connected to email/WhatsApp/service later.",
+
+    notFoundTitle: "Page not found",
+    notFoundText: "The link is incorrect or the page does not exist.",
+    notFoundHome: "Back to home",
+    notFoundServices: "Services",
+
+    impressumTitle: "Imprint",
+    privacyTitle: "Privacy Policy",
+  }
+};
+
+const LANG_KEY = "ix_lang";
+let lang = (localStorage.getItem(LANG_KEY) || "de").toLowerCase();
+if (!I18N[lang]) lang = "de";
+const t = (key) => (I18N[lang] && I18N[lang][key]) ? I18N[lang][key] : (I18N.de[key] || key);
+
+function setLang(newLang){
+  lang = newLang;
+  localStorage.setItem(LANG_KEY, lang);
+  updateLangUI();
+  route();
+}
+
+function updateLangUI(){
+  // set html lang
+  document.documentElement.lang = lang === "en" ? "en" : "de";
+
+  // active buttons
+  const setActive = (id, active) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle("active", active);
+  };
+  setActive("langDE", lang === "de");
+  setActive("langEN", lang === "en");
+  setActive("mLangDE", lang === "de");
+  setActive("mLangEN", lang === "en");
+
+  // static texts (header/footer)
+  document.querySelectorAll("[data-t]").forEach(el => {
+    const key = el.getAttribute("data-t");
+    el.textContent = t(key);
+  });
+}
+
+/* -------------------- Data -------------------- */
+const SERVICES = [
+  {
+    slug: "laser-schneiden",
+    title: {de:"Laserschneiden", en:"Laser cutting"},
+    tag: {de:"Laser", en:"Laser"},
+    intro: {
+      de:"IX Design liefert präzisen Laserschnitt für Holz, MDF, Acryl und weitere Materialien – sauber, wiederholbar und ideal für Einzelstücke sowie Kleinserien.",
+      en:"IX Design provides precise laser cutting for wood, MDF, acrylic and more – clean, repeatable and ideal for one-offs and small batches."
+    },
+    bullets: {
+      de:["Saubere Kanten und präzise Konturen","Einzelstücke und Kleinserien","Teile für Boxen, Displays und Konstruktionen","Material- und projektabhängige Umsetzung"],
+      en:["Clean edges and precise contours","One-offs and small batches","Parts for boxes, displays and constructions","Material/project dependent execution"]
+    },
+    usecases: {
+      de:["Geschenkboxen und Präsentationsverpackungen","Schriftzüge, Schilder, Einlagen, Organizer","Mechanische Konstruktionen aus Holz/MDF"],
+      en:["Gift boxes and presentation packaging","Lettering, signs, inserts, organizers","Mechanical constructions in wood/MDF"]
+    }
+  },
+  {
+    slug: "laser-gravur",
+    title: {de:"Lasergravur", en:"Laser engraving"},
+    tag: {de:"Laser", en:"Laser"},
+    intro: {
+      de:"Für Branding und Premium-Details setzt IX Design Lasergravur auf ausgewählten Materialien ein – präzise, kontrastreich und professionell.",
+      en:"For branding and premium details, IX Design uses laser engraving on selected materials – precise, high contrast and professional."
+    },
+    bullets: {
+      de:["Logo- und Textgravur","Detailreiche Motive","Branding auf Produkten und Bauteilen","Kennzeichnung und Individualisierung"],
+      en:["Logo and text engraving","Detailed graphics","Branding on products and parts","Marking and personalization"]
+    },
+    usecases: {
+      de:["Schilder, Namensplatten, Serienmarkierung","Premium-Verpackungen mit Gravur","Branding auf Holz/Acryl (materialabhängig)"],
+      en:["Signs, name plates, serial marking","Premium packaging with engraving","Branding on wood/acrylic (material dependent)"]
+    }
+  },
+  {
+    slug: "sublimation",
+    title: {de:"Sublimation", en:"Sublimation"},
+    tag: {de:"Sublimation", en:"Sublimation"},
+    intro: {
+      de:"IX Design realisiert hochwertige Personalisierung durch Sublimation – ideal für präzise Motive, kräftige Farben und Werbeartikel.",
+      en:"IX Design delivers high-quality sublimation personalization – ideal for crisp designs, strong colors and promo items."
+    },
+    bullets: {
+      de:["Individuelle Motive und Serien","Geeignet für Werbeartikel und Produktbranding","Kombinierbar mit Aufklebern und Textilveredelung","Projekt- und rohlingabhängige Umsetzung"],
+      en:["Custom designs and small runs","Great for promo items and product branding","Can be combined with stickers and textile finishing","Execution depends on substrate/project"]
+    },
+    usecases: {
+      de:["Feuerzeuge mit Sublimation/Sticker-Kombination","Werbeartikel und personalisierte Produkte","Kleinserien für Marken"],
+      en:["Lighters with sublimation/sticker combo","Promo items and personalized products","Small batches for brands"]
+    }
+  },
+  {
+    slug: "3d-druck",
+    title: {de:"3D-Druck", en:"3D printing"},
+    tag: {de:"3D", en:"3D"},
+    intro: {
+      de:"IX Design fertigt funktionale 3D-Druckteile, Prototypen und Sonderanfertigungen – abgestimmt auf Anwendung, Passform und Belastung.",
+      en:"IX Design produces functional 3D printed parts, prototypes and custom builds – tailored to use case, fit and load."
+    },
+    bullets: {
+      de:["Funktionale Bauteile und Prototypen","Halterungen, Adapter, Sonderteile","Kleinserien möglich","Kombinierbar mit Laser/CNC"],
+      en:["Functional parts and prototypes","Brackets, adapters, custom parts","Small batches possible","Can be combined with laser/CNC"]
+    },
+    usecases: {
+      de:["Mechanische Elemente für Boxen/Displays","Halterungen und Adapter","Prototypen für Produktideen"],
+      en:["Mechanical elements for boxes/displays","Brackets and adapters","Prototypes for product ideas"]
+    }
+  },
+  {
+    slug: "prototyping",
+    title: {de:"Prototyping", en:"Prototyping"},
+    tag: {de:"Prototyping", en:"Prototyping"},
+    intro: {
+      de:"Von der Idee zum umsetzbaren Produkt: IX Design unterstützt bei Aufbau, Test, Iteration und Vorbereitung für Kleinserien.",
+      en:"From idea to buildable product: IX Design supports build, testing, iteration and prep for small batches."
+    },
+    bullets: {
+      de:["Konzept → Modell → Prototyp","Technik- und Materialauswahl","Iterationen und Optimierung","Vorbereitung für Kleinserie"],
+      en:["Concept → model → prototype","Technology and material selection","Iterations and optimization","Preparation for small batch"]
+    },
+    usecases: {
+      de:["Neues Produkt als MVP","Mechanische Verpackungen und Displays","Funktionsbauteile und Gehäuse"],
+      en:["New product as MVP","Mechanical packaging and displays","Functional parts and enclosures"]
+    }
+  },
+  {
+    slug: "design-dateien",
+    title: {de:"Design & Produktionsdateien (SVG/STL/DXF)", en:"Design & production files (SVG/STL/DXF)"},
+    tag: {de:"Design", en:"Design"},
+    intro: {
+      de:"IX Design erstellt und optimiert Produktionsdateien für Laser, 3D-Druck und CNC – sauber, maschinenfähig und reproduzierbar.",
+      en:"IX Design creates and optimizes production files for laser, 3D printing and CNC – clean, machine-ready and repeatable."
+    },
+    bullets: {
+      de:["SVG/DXF für Laser","STL für 3D-Druck","Konstruktionen und Anpassungen","Fertigungsoptimierung"],
+      en:["SVG/DXF for laser","STL for 3D printing","Constructions and adjustments","Manufacturing optimization"]
+    },
+    usecases: {
+      de:["Vektordateien für Branding/Schilder","Konstruktionen für Boxen und Inlays","3D-Modelle für Funktionsbauteile"],
+      en:["Vector files for branding/signage","Constructions for boxes and inserts","3D models for functional parts"]
+    }
+  },
+  {
+    slug: "stickerei",
+    title: {de:"Computerstickerei (Haft)", en:"Machine embroidery"},
+    tag: {de:"Stickerei", en:"Embroidery"},
+    intro: {
+      de:"Für langlebiges Branding setzt IX Design Maschinenstickerei ein – ideal für Logos, Schrift und hochwertige Textilveredelung.",
+      en:"For durable branding, IX Design uses machine embroidery – ideal for logos, lettering and premium textile finishing."
+    },
+    bullets: {
+      de:["Logo und Schrift","Langlebig und hochwertig","Ideal für Hoodies, Caps, Workwear","Kombinierbar mit Sublimation"],
+      en:["Logo and lettering","Durable and premium","Great for hoodies, caps, workwear","Can be combined with sublimation"]
+    },
+    usecases: {
+      de:["Hoodies, T-Shirts, Caps","Branding für Teams und Marken","Kleinserien"],
+      en:["Hoodies, tees, caps","Branding for teams and brands","Small batches"]
+    }
+  },
+  {
+    slug: "naeharbeiten",
+    title: {de:"Näharbeiten & Verarbeitung", en:"Sewing & processing"},
+    tag: {de:"Textil", en:"Textile"},
+    intro: {
+      de:"IX Design übernimmt projektbezogene Näh- und Verarbeitungsarbeiten – sinnvoll für kombinierte Textilprojekte und Sonderlösungen.",
+      en:"IX Design provides project-based sewing and processing – useful for combined textile projects and special builds."
+    },
+    bullets: {
+      de:["Verarbeitung und Anpassungen","Kombination mit Stickerei","Individuelle Lösungen je nach Projekt","Saubere Ausführung"],
+      en:["Processing and adjustments","Combined with embroidery","Project-specific solutions","Clean execution"]
+    },
+    usecases: {
+      de:["Custom Textil-Projekte","Kombinierte Veredelung","Sonderlösungen nach Bedarf"],
+      en:["Custom textile projects","Combined finishing","Custom solutions as needed"]
+    }
+  },
+  {
+    slug: "werbung-auf-produkten",
+    title: {de:"Werbung auf Produkten", en:"Branding on products"},
+    tag: {de:"Branding", en:"Branding"},
+    intro: {
+      de:"IX Design realisiert Werbung und Personalisierung direkt auf Produkten – von Werbeartikeln bis zu technischen Bauteilen, als Einzelstück oder Kleinserie.",
+      en:"IX Design delivers branding and personalization directly on products – from promo items to technical parts, as one-offs or small batches."
+    },
+    bullets: {
+      de:["Feuerzeuge, Stifte, Maßbänder, Gadgets","Aufkleber und Etiketten","Textilien (Hoodies, Caps)","Kombinierte Techniken (Laser/3D/Sublimation/Stickerei)"],
+      en:["Lighters, pens, tape measures, gadgets","Stickers and labels","Textiles (hoodies, caps)","Combined techniques (laser/3D/sublimation/embroidery)"]
+    },
+    usecases: {
+      de:["Werbeartikel für Unternehmen","Branding für Events/Teams","Individuelle Serien"],
+      en:["Promo items for businesses","Branding for events/teams","Custom small runs"]
+    }
+  },
+  {
+    slug: "textilien",
+    title: {de:"Textilien (Hoodies, Caps, Merch)", en:"Textiles (hoodies, caps, merch)"},
+    tag: {de:"Textil", en:"Textile"},
+    intro: {
+      de:"IX Design veredelt Textilien wie Hoodies und Caps – professionell umgesetzt durch Stickerei, Sublimation und kombinierte Verarbeitung.",
+      en:"IX Design finishes textiles like hoodies and caps – professionally executed via embroidery, sublimation and combined processing."
+    },
+    bullets: {
+      de:["Hoodies, T-Shirts, Caps","Stickerei und Sublimation","Kleinserien und Einzelstücke","Klare Optik, saubere Umsetzung"],
+      en:["Hoodies, tees, caps","Embroidery and sublimation","Small batches and one-offs","Clean look, solid execution"]
+    },
+    usecases: {
+      de:["Merch für Creator/Brands","Teamwear und Workwear","Geschenke & Sonderprojekte"],
+      en:["Merch for creators/brands","Teamwear and workwear","Gifts and special projects"]
+    }
+  },
+  {
+    slug: "geschenkboxen",
+    title: {de:"Geschenkboxen & Präsentboxen", en:"Gift & presentation boxes"},
+    tag: {de:"Boxen", en:"Boxes"},
+    intro: {
+      de:"IX Design entwickelt Premium-Boxen aus Holz und weiteren Materialien – oft mit Mechanik, Gravur und 3D-Details.",
+      en:"IX Design develops premium boxes in wood and other materials – often with mechanics, engraving and 3D details."
+    },
+    bullets: {
+      de:["Holz/MDF/Acryl je nach Projekt","Mechanische Elemente möglich","Lasergravur & Laserschnitt","Einzelstücke oder Kleinserie"],
+      en:["Wood/MDF/acrylic depending on project","Mechanical elements possible","Laser engraving & cutting","One-offs or small batch"]
+    },
+    usecases: {
+      de:["Collector Präsentboxen","Boxen mit versteckten Fächern","Premium Packaging"],
+      en:["Collector presentation boxes","Boxes with hidden compartments","Premium packaging"]
+    }
+  },
+  {
+    slug: "verpackungen",
+    title: {de:"Verpackungen & Packaging", en:"Packaging"},
+    tag: {de:"Packaging", en:"Packaging"},
+    intro: {
+      de:"IX Design erstellt individuelles Packaging – von Inserts bis zu kompletten Verpackungskonzepten, premium und stabil.",
+      en:"IX Design creates custom packaging – from inserts to complete concepts, premium and sturdy."
+    },
+    bullets: {
+      de:["Produkt-Inlays und Einsätze","Präsentationsverpackungen","Branding durch Gravur/Veredelung","Prototyp → Kleinserie"],
+      en:["Product inserts and inlays","Presentation packaging","Branding via engraving/finishing","Prototype → small batch"]
+    },
+    usecases: {
+      de:["Packaging für Werbeartikel","Collector-Editionen","Produktpräsentation für Verkauf"],
+      en:["Packaging for promo items","Collector editions","Product presentation for sales"]
+    }
+  },
+  {
+    slug: "cnc",
+    title: {de:"CNC", en:"CNC"},
+    tag: {de:"CNC", en:"CNC"},
+    intro: {
+      de:"IX Design bietet CNC-Bearbeitung für präzise Formen und Sonderteile – ideal in Kombination mit Laser und Prototyping.",
+      en:"IX Design provides CNC machining for precise shapes and custom parts – ideal combined with laser and prototyping."
+    },
+    bullets: {
+      de:["Präzise Bearbeitung (materialabhängig)","Sonderteile und Anpassungen","Kombination mit Laser/3D möglich","Projektbezogene Umsetzung"],
+      en:["Precision machining (material dependent)","Custom parts and adjustments","Can be combined with laser/3D","Project-based execution"]
+    },
+    usecases: {
+      de:["Teile für Konstruktionen","Formteile und Sonderlösungen","Prototypen und Kleinserien"],
+      en:["Parts for constructions","Form parts and custom solutions","Prototypes and small batches"]
+    }
+  }
+];
+
+const PORTFOLIO = [
+  {
+    title:{de:"Individuelle Geschenkverpackung aus Holz", en:"Custom wooden gift packaging"},
+    sub:{de:"Laserschnitt · Gravur · Sonderanfertigung", en:"Laser cut · engraving · custom build"},
+    tags:["laser","boxes","packaging"],
+    text:{de:"Maßgefertigte Holzbox mit Laserschnitt, Gravur und optionalen beweglichen Elementen.", en:"Custom wooden box with laser cutting, engraving and optional moving elements."}
+  },
+  {
+    title:{de:"Textilveredelung (Hoodies & Caps)", en:"Textile finishing (hoodies & caps)"},
+    sub:{de:"Stickerei · Sublimation · Verarbeitung", en:"Embroidery · sublimation · processing"},
+    tags:["textile","embroidery","sublimation"],
+    text:{de:"Branding auf Textilien mit langlebiger Optik – ideal für Merch und Teams.", en:"Durable textile branding – ideal for merch and teams."}
+  },
+  {
+    title:{de:"Feuerzeuge (Werbung auf Produkten)", en:"Lighters (branding on products)"},
+    sub:{de:"Sublimation · Sticker · Serie möglich", en:"Sublimation · stickers · small runs"},
+    tags:["branding","sublimation"],
+    text:{de:"Personalisierte Feuerzeuge für Einzelstücke und Kleinserien.", en:"Personalized lighters for one-offs and small batches."}
+  },
+  {
+    title:{de:"3D-Druck: Funktionale Bauteile", en:"3D printing: functional parts"},
+    sub:{de:"Prototyp · Halterung · Sonderteil", en:"Prototype · bracket · custom part"},
+    tags:["3d","prototyping"],
+    text:{de:"Funktionale Teile passend zum Einsatz – mit Iteration und Optimierung.", en:"Functional parts tailored to the use case – with iteration and optimization."}
+  },
+  {
+    title:{de:"Lasergravur: Schilder & Branding", en:"Laser engraving: signage & branding"},
+    sub:{de:"Detail · Sauber · Premium", en:"Detail · clean · premium"},
+    tags:["laser"],
+    text:{de:"Gravuren für Branding, Kennzeichnung und Premium-Optik.", en:"Engraving for branding, marking and a premium look."}
+  },
+  {
+    title:{de:"Packaging: Inserts & Einlagen", en:"Packaging: inserts & inlays"},
+    sub:{de:"Konzept · Umsetzung · Serie", en:"Concept · build · small run"},
+    tags:["packaging","design"],
+    text:{de:"Inlays und Verpackungen, die Produkte sauber und hochwertig präsentieren.", en:"Inlays and packaging that present products cleanly and premium."}
+  }
+];
+
+/* -------------------- Router -------------------- */
+const app = document.getElementById("app");
+
+function route() {
+  const hash = location.hash || "#/";
+  const parts = hash.replace(/^#/, "").split("/").filter(Boolean); // ["services","slug"]
+  const base = parts[0] || "";
+  const param = parts[1] || "";
+
+  closeMobileNav();
+
+  if (base === "") renderHome();
+  else if (base === "services" && !param) renderServicesIndex();
+  else if (base === "services" && param) renderServiceDetail(param);
+  else if (base === "portfolio") renderPortfolio();
+  else if (base === "about") renderAbout();
+  else if (base === "contact") renderContact();
+  else if (base === "impressum") renderImpressum();
+  else if (base === "datenschutz") renderDatenschutz();
+  else renderNotFound();
+
+  afterRender();
+  updateLangUI();
+}
+
+window.addEventListener("hashchange", route);
+window.addEventListener("load", () => {
+  bindLangButtons();
+  updateLangUI();
+  route();
+});
+
+/* -------------------- Helpers -------------------- */
+function view(html) { app.innerHTML = `<div class="view">${html}</div>`; }
+function esc(s){return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+
+function serviceBySlug(slug){ return SERVICES.find(s => s.slug === slug); }
+function STitle(s){ return (s.title[lang] || s.title.de); }
+function STag(s){ return (s.tag[lang] || s.tag.de); }
+function SIntro(s){ return (s.intro[lang] || s.intro.de); }
+function SBullets(s){ return (s.bullets[lang] || s.bullets.de); }
+function SUsecases(s){ return (s.usecases[lang] || s.usecases.de); }
+
+function afterRender(){
+  const els = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("in"); });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+
+  const media = document.querySelector(".media");
+  if(media){
+    window.onmousemove = (e) => {
+      const x = (e.clientX / window.innerWidth - .5) * 10;
+      const y = (e.clientY / window.innerHeight - .5) * 10;
+      media.style.transform = `translate(${x}px, ${y}px)`;
+    };
+  } else {
+    window.onmousemove = null;
+  }
+
+  bindPortfolioClicks();
+  bindSliderControls();
+}
+
+/* -------------------- Pages -------------------- */
+function renderHome(){
+  view(`
+    <section class="hero reveal">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker"><span class="dot"></span> ${esc(t("homeKicker"))}</div>
+          <div class="h1">${esc(t("homeH1"))}</div>
+          <p class="lead">${esc(t("homeLead"))}</p>
+          <div class="row">
+            <a class="btn primary" href="#/services">${esc(t("homeCTA1"))}</a>
+            <a class="btn" href="#/contact">${esc(t("homeCTA2"))}</a>
+          </div>
+          <div class="pills" style="margin-top:14px">
+            ${[
+              lang==="de"?"Laser":"Laser",
+              lang==="de"?"CNC":"CNC",
+              lang==="de"?"3D-Druck":"3D printing",
+              lang==="de"?"Sublimation":"Sublimation",
+              lang==="de"?"Stickerei":"Embroidery",
+              lang==="de"?"Textil":"Textile",
+              lang==="de"?"Packaging":"Packaging",
+              lang==="de"?"Prototyping":"Prototyping",
+              lang==="de"?"SVG/STL/DXF":"SVG/STL/DXF",
+              lang==="de"?"Werbeartikel":"Promo items"
+            ].map(x=>`<span class="pill">${esc(x)}</span>`).join("")}
+          </div>
+        </div>
+        <div class="media" aria-label="Visual Platzhalter">
+          <div class="media-badge"><strong style="color:var(--text)">${esc(lang==="de"?"Hero Visual":"Hero visual")}</strong><br/>${esc(t("mediaPlaceholder"))}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>${esc(t("homeTilesTitle"))}</h2>
+          <p>${esc(t("homeTilesText"))}</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        ${serviceTiles()}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>${esc(t("homeAdsTitle"))}</h2>
+          <p>${esc(t("homeAdsText"))}</p>
+        </div>
+        <a class="btn ghost" href="#/services/werbung-auf-produkten">${esc(t("homeAdsBtn"))}</a>
+      </div>
+      <div class="list reveal">
+        ${[
+          lang==="de"?"Feuerzeuge (Sublimation / Aufkleber)":"Lighters (sublimation / stickers)",
+          lang==="de"?"Aufkleber & Etiketten":"Stickers & labels",
+          lang==="de"?"Werbeartikel (Stifte, Maßbänder, Gadgets)":"Promo items (pens, tape measures, gadgets)",
+          lang==="de"?"Textilien (Hoodies, Caps)":"Textiles (hoodies, caps)",
+          lang==="de"?"Computerstickerei & Näharbeiten":"Embroidery & sewing/processing",
+          lang==="de"?"Kombinationen: Laser + 3D + Stick + Sublimation":"Combinations: laser + 3D + embroidery + sublimation"
+        ].map(x=>`<div class="item"><span class="check"></span><div>${esc(x)}</div></div>`).join("")}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>${esc(t("homePortfolioTitle"))}</h2>
+          <p>${esc(t("homePortfolioText"))}</p>
+        </div>
+        <a class="btn ghost" href="#/portfolio">${esc(t("homePortfolioBtn"))}</a>
+      </div>
+      ${portfolioSlider(PORTFOLIO.slice(0,6))}
+    </section>
+  `);
+}
+
+function renderServicesIndex(){
+  view(`
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>${esc(t("servicesTitle"))}</h2>
+          <p>${esc(t("servicesText"))}</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        ${serviceTiles()}
+      </div>
+    </section>
+  `);
+}
+
+function renderServiceDetail(slug){
+  const s = serviceBySlug(slug);
+  if(!s){ renderNotFound(); return; }
+
+  view(`
+    <section class="hero reveal">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker"><span class="dot"></span> ${esc(lang==="de"?"Leistung":"Service")} · ${esc(STag(s))}</div>
+          <div class="h1">${esc(STitle(s))}</div>
+          <p class="lead">${esc(SIntro(s))}</p>
+          <div class="row">
+            <a class="btn primary" href="#/contact">${esc(lang==="de"?"Anfrage senden":"Send request")}</a>
+            <a class="btn ghost" href="#/services">${esc(lang==="de"?"Zur Übersicht":"Back to services")}</a>
+          </div>
+          <div class="pills" style="margin-top:14px">
+            ${SBullets(s).slice(0,6).map(x=>`<span class="pill">${esc(x)}</span>`).join("")}
+          </div>
+        </div>
+        <div class="media" aria-label="Platzhalter Visual">
+          <div class="media-badge"><strong style="color:var(--text)">${esc(lang==="de"?"Visual":"Visual")}</strong><br/>${esc(t("mediaPlaceholder"))}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="panel reveal">
+          <h3>${esc(lang==="de"?"Leistungsumfang":"What’s included")}</h3>
+          <ul>
+            ${SBullets(s).map(x=>`<li>${esc(x)}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="panel reveal">
+          <h3>${esc(lang==="de"?"Typische Projekte":"Typical projects")}</h3>
+          <ul>
+            ${SUsecases(s).map(x=>`<li>${esc(x)}</li>`).join("")}
+          </ul>
+          <div class="row" style="margin-top:10px">
+            <a class="btn primary" href="#/contact">${esc(lang==="de"?"Projekt anfragen":"Request a project")}</a>
+            <a class="btn ghost" href="#/portfolio">${esc(lang==="de"?"Beispiele ansehen":"View examples")}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `);
+}
+
+function renderPortfolio(){
+  view(`
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>${esc(t("portfolioTitle"))}</h2>
+          <p>${esc(t("portfolioText"))}</p>
+        </div>
+      </div>
+      ${portfolioSlider(PORTFOLIO)}
+    </section>
+  `);
+}
+
+function renderAbout(){
+  view(`
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>${esc(t("aboutTitle"))}</h2>
+          <p>${esc(t("aboutText"))}</p>
+        </div>
+      </div>
+      <div class="split">
+        <div class="panel reveal">
+          <h3>${esc(t("aboutPanelTitle"))}</h3>
+          <p>${esc(t("aboutP1"))}</p>
+          <p>${esc(t("aboutP2"))}</p>
+          <p>${esc(t("aboutP3"))}</p>
+        </div>
+        <div class="panel reveal">
+          <h3>${esc(t("aboutWorkTitle"))}</h3>
+          <p>• ${esc(t("aboutWorkA"))}</p>
+          <p>• ${esc(t("aboutWorkB"))}</p>
+          <p>• ${esc(t("aboutWorkC"))}</p>
+          <p>• ${esc(t("aboutWorkD"))}</p>
+          <div class="row" style="margin-top:10px">
+            <a class="btn primary" href="#/contact">${esc(lang==="de"?"Projekt anfragen":"Request a project")}</a>
+            <a class="btn ghost" href="#/services">${esc(lang==="de"?"Leistungen":"Services")}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `);
+}
+
+function renderContact(){
+  view(`
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>${esc(t("contactTitle"))}</h2>
+          <p>${esc(t("contactText"))}</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="panel reveal">
+          <h3>${esc(t("contactLeftTitle"))}</h3>
+          <p>• ${esc(t("contactL1"))}</p>
+          <p>• ${esc(t("contactL2"))}</p>
+          <p>• ${esc(t("contactL3"))}</p>
+          <p>• ${esc(t("contactL4"))}</p>
+          <div class="pills">
+            ${SERVICES.slice(0,10).map(s=>`<span class="pill">${esc(STag(s))}</span>`).join("")}
+          </div>
+        </div>
+
+        <div class="panel reveal">
+          <h3>${esc(t("formTitle"))}</h3>
+          <form class="form" id="contactForm">
+            <div class="field">
+              <label for="name">${esc(t("formName"))}</label>
+              <input id="name" name="name" placeholder="${esc(t("formName"))}" required />
+            </div>
+            <div class="field">
+              <label for="email">${esc(t("formEmail"))}</label>
+              <input id="email" name="email" type="email" placeholder="name@mail.de" required />
+            </div>
+            <div class="field span-2">
+              <label for="desc">${esc(t("formDesc"))}</label>
+              <textarea id="desc" name="desc" placeholder="${esc(t("formDesc"))}" required></textarea>
+            </div>
+            <div class="field">
+              <label for="material">${esc(t("formMaterial"))}</label>
+              <input id="material" name="material" placeholder="${esc(t("formMaterial"))}" />
+            </div>
+            <div class="field">
+              <label for="qty">${esc(t("formQty"))}</label>
+              <input id="qty" name="qty" placeholder="${esc(t("formQty"))}" />
+            </div>
+            <div class="field span-2" style="display:flex; gap:10px; flex-direction:row; align-items:center; margin-top:6px;">
+              <button class="btn primary" type="submit">${esc(t("formSend"))}</button>
+              <a class="btn ghost" href="#/services">${esc(lang==="de"?"Leistungen":"Services")}</a>
+            </div>
+          </form>
+          <div class="hint" id="formNote">${esc(t("formNote"))}</div>
+        </div>
+      </div>
+    </section>
+  `);
+
+  const form = document.getElementById("contactForm");
+  const note = document.getElementById("formNote");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    note.textContent = lang === "de"
+      ? "Danke! Demo-Submit. Später an E-Mail/WhatsApp/Service anbinden."
+      : "Thanks! Demo submit. Connect to email/WhatsApp/service later.";
+    note.style.color = "rgba(124,255,200,.9)";
+  });
+}
+
+/* -------------------- Impressum & Datenschutz --------------------
+   IMPORTANT: This is a professional template with placeholders.
+   You MUST replace placeholders with your real company details.
+------------------------------------------------------------------- */
+function renderImpressum(){
+  const contentDE = `
+    <p><strong>Angaben gemäß § 5 TMG</strong></p>
+    <p>
+      <strong>IX Design</strong><br/>
+      [Rechtsform, z. B. Einzelunternehmen / GmbH / UG]<br/>
+      [Straße Hausnummer]<br/>
+      [PLZ Ort]<br/>
+      Deutschland
+    </p>
+    <p>
+      <strong>Vertreten durch</strong><br/>
+      [Name des Inhabers / Geschäftsführers]
+    </p>
+    <p>
+      <strong>Kontakt</strong><br/>
+      Telefon: [Telefonnummer]<br/>
+      E-Mail: [E-Mail-Adresse]<br/>
+      Website: [Domain]
+    </p>
+    <p>
+      <strong>Umsatzsteuer-ID</strong><br/>
+      Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: [USt-IdNr. falls vorhanden]
+    </p>
+    <p>
+      <strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br/>
+      [Name, Anschrift wie oben]
+    </p>
+    <p>
+      <strong>Haftung für Inhalte</strong><br/>
+      Wir sind als Diensteanbieter für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+      Wir übernehmen jedoch keine Gewähr für die Aktualität, Vollständigkeit und Richtigkeit der bereitgestellten Inhalte.
+    </p>
+    <p>
+      <strong>Haftung für Links</strong><br/>
+      Unser Angebot enthält Links zu externen Websites Dritter. Auf deren Inhalte haben wir keinen Einfluss.
+      Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+    </p>
+  `;
+
+  const contentEN = `
+    <p><strong>Imprint (Germany)</strong></p>
+    <p>
+      <strong>IX Design</strong><br/>
+      [Legal form, e.g. sole proprietorship / GmbH / UG]<br/>
+      [Street + number]<br/>
+      [ZIP City]<br/>
+      Germany
+    </p>
+    <p>
+      <strong>Represented by</strong><br/>
+      [Owner / Managing director name]
+    </p>
+    <p>
+      <strong>Contact</strong><br/>
+      Phone: [Phone number]<br/>
+      Email: [Email address]<br/>
+      Website: [Domain]
+    </p>
+    <p>
+      <strong>VAT ID</strong><br/>
+      VAT identification number pursuant to § 27a German VAT Act: [VAT ID if applicable]
+    </p>
+    <p>
+      <strong>Responsible for content</strong><br/>
+      [Name, address]
+    </p>
+    <p>
+      <strong>Liability for content</strong><br/>
+      We are responsible for our own content under general laws. However, we do not guarantee accuracy, completeness or timeliness.
+    </p>
+    <p>
+      <strong>Liability for links</strong><br/>
+      Our website may contain links to third-party sites. We have no influence over their content and cannot assume liability.
+    </p>
+  `;
+
+  view(`
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>${esc(t("impressumTitle"))}</h2>
+          <p>${esc(lang==="de"
+            ? "Vorlage mit Platzhaltern. Bitte ersetzen Sie die Felder in eckigen Klammern durch Ihre Unternehmensdaten."
+            : "Template with placeholders. Replace bracket fields with your company details.")}</p>
+        </div>
+      </div>
+      <div class="panel reveal">
+        ${lang==="de" ? contentDE : contentEN}
+      </div>
+    </section>
+  `);
+}
+
+function renderDatenschutz(){
+  const contentDE = `
+    <p><strong>1. Datenschutz auf einen Blick</strong></p>
+    <p>
+      Diese Datenschutzerklärung informiert über die Verarbeitung personenbezogener Daten beim Besuch dieser Website.
+      Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+    </p>
+
+    <p><strong>2. Verantwortliche Stelle</strong></p>
+    <p>
+      Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br/>
+      <strong>IX Design</strong><br/>
+      [Straße Hausnummer], [PLZ Ort], Deutschland<br/>
+      E-Mail: [E-Mail-Adresse]
+    </p>
+
+    <p><strong>3. Hosting</strong></p>
+    <p>
+      Diese Website wird über einen Hosting-Anbieter betrieben. Dabei können Server-Logfiles verarbeitet werden
+      (z. B. IP-Adresse, Zeitpunkt, aufgerufene Seite, User-Agent) zur Sicherstellung des technischen Betriebs und zur Missbrauchsabwehr.
+    </p>
+
+    <p><strong>4. Kontaktformular</strong></p>
+    <p>
+      Wenn Sie uns per Formular kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage verarbeitet.
+      Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Kommunikation).
+      In dieser Demo-Version wird das Formular nicht an einen Server übertragen, bis Sie es anbinden.
+    </p>
+
+    <p><strong>5. Cookies & Tracking</strong></p>
+    <p>
+      Diese Website setzt standardmäßig keine Tracking-Cookies ein. (Wenn Sie später Tools wie Analytics nutzen,
+      muss diese Erklärung angepasst werden.)
+    </p>
+
+    <p><strong>6. Ihre Rechte</strong></p>
+    <p>
+      Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit
+      sowie Widerspruch gegen die Verarbeitung Ihrer Daten. Zudem steht Ihnen ein Beschwerderecht bei einer Aufsichtsbehörde zu.
+    </p>
+
+    <p><strong>7. Aktualität</strong></p>
+    <p>
+      Diese Datenschutzerklärung wird angepasst, sobald sich Website-Funktionen oder rechtliche Anforderungen ändern.
+    </p>
+  `;
+
+  const contentEN = `
+    <p><strong>1. Overview</strong></p>
+    <p>
+      This privacy policy explains how personal data is processed when you visit this website.
+      Personal data is any data that can identify you personally.
+    </p>
+
+    <p><strong>2. Controller</strong></p>
+    <p>
+      Controller responsible for data processing on this website:<br/>
+      <strong>IX Design</strong><br/>
+      [Street + number], [ZIP City], Germany<br/>
+      Email: [Email address]
+    </p>
+
+    <p><strong>3. Hosting</strong></p>
+    <p>
+      This website is operated via a hosting provider. Server logs may be processed (e.g. IP address, timestamp, requested page, user-agent)
+      to ensure technical operation and prevent abuse.
+    </p>
+
+    <p><strong>4. Contact form</strong></p>
+    <p>
+      When you contact us via the form, your details are processed to handle the request.
+      Legal basis: Art. 6(1)(b) GDPR (pre-contractual steps) and/or Art. 6(1)(f) GDPR (legitimate interest in communication).
+      In this demo version, the form is not transmitted to a server until you connect it.
+    </p>
+
+    <p><strong>5. Cookies & tracking</strong></p>
+    <p>
+      This website does not use tracking cookies by default. (If you add analytics later, this policy must be updated.)
+    </p>
+
+    <p><strong>6. Your rights</strong></p>
+    <p>
+      You have the right to access, rectification, erasure, restriction, data portability and to object to processing.
+      You also have the right to lodge a complaint with a supervisory authority.
+    </p>
+
+    <p><strong>7. Updates</strong></p>
+    <p>
+      This policy will be updated if website functionality or legal requirements change.
+    </p>
+  `;
+
+  view(`
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>${esc(t("privacyTitle"))}</h2>
+          <p>${esc(lang==="de"
+            ? "Vorlage. Bitte ersetzen Sie Platzhalter und passen Sie die Punkte an, wenn Sie Tracking, Newsletter oder externe Dienste hinzufügen."
+            : "Template. Replace placeholders and update if you add tracking, newsletters or third-party services.")}</p>
+        </div>
+      </div>
+      <div class="panel reveal">
+        ${lang==="de" ? contentDE : contentEN}
+      </div>
+    </section>
+  `);
+}
+
+function renderNotFound(){
+  view(`
+    <section class="section">
+      <div class="panel reveal">
+        <h3>${esc(t("notFoundTitle"))}</h3>
+        <p>${esc(t("notFoundText"))}</p>
+        <div class="row">
+          <a class="btn primary" href="#/">${esc(t("notFoundHome"))}</a>
+          <a class="btn ghost" href="#/services">${esc(t("notFoundServices"))}</a>
+        </div>
+      </div>
+    </section>
+  `);
+}
+
+/* -------------------- Tiles -------------------- */
+function serviceTiles(){
+  return SERVICES.map(s => `
+    <div class="tile reveal">
+      <div class="tag">${esc(STag(s))}</div>
+      <h3>${esc(STitle(s))}</h3>
+      <p>${esc(SIntro(s))}</p>
+      <a class="link" href="#/services/${esc(s.slug)}">${esc(lang==="de"?"Mehr erfahren →":"Learn more →")}</a>
+    </div>
+  `).join("");
+}
+
+/* -------------------- Portfolio slider -------------------- */
+function portfolioSlider(items){
+  return `
+    <div class="slider-wrap reveal">
+      <div class="slider-top">
+        <div class="pills">
+          ${[lang==="de"?"Tippen/ziehen":"Drag", lang==="de"?"Modal-Details":"Modal details", lang==="de"?"Canva-Placeholder":"Canva placeholder"].map(x=>`<span class="pill">${esc(x)}</span>`).join("")}
+        </div>
+        <div class="slider-actions">
+          <button class="btn ghost" data-slider-prev>${lang==="de"?"← Zurück":"← Prev"}</button>
+          <button class="btn ghost" data-slider-next>${lang==="de"?"Weiter →":"Next →"}</button>
+        </div>
+      </div>
+      <div class="slider" id="portfolioSlider">
+        ${items.map((p,i)=>slideCard(p,i)).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function slideCard(p, i){
+  return `
+    <div class="slide" data-work="${i}">
+      <div class="thumb"></div>
+      <div class="meta">
+        <div>
+          <h4>${esc(p.title[lang] || p.title.de)}</h4>
+          <div class="sub">${esc(p.sub[lang] || p.sub.de)}</div>
+        </div>
+        <span class="badge">${esc((p.tags[0]||"").toUpperCase())}</span>
+      </div>
+    </div>
+  `;
+}
+
+function bindSliderControls(){
+  const slider = document.getElementById("portfolioSlider");
+  if(!slider) return;
+
+  const prev = document.querySelector("[data-slider-prev]");
+  const next = document.querySelector("[data-slider-next]");
+  const step = () => Math.min(420, slider.clientWidth * 0.9);
+
+  if(prev) prev.onclick = () => slider.scrollBy({left: -step(), behavior:"smooth"});
+  if(next) next.onclick = () => slider.scrollBy({left: step(), behavior:"smooth"});
+
+  // drag support for desktop
+  let down = false, startX = 0, startScroll = 0;
+  slider.addEventListener("mousedown", (e)=>{
+    down = true;
+    startX = e.pageX;
+    startScroll = slider.scrollLeft;
+    slider.style.cursor = "grabbing";
+  });
+  window.addEventListener("mouseup", ()=>{
+    down = false;
+    if(slider) slider.style.cursor = "";
+  });
+  window.addEventListener("mousemove", (e)=>{
+    if(!down) return;
+    const dx = e.pageX - startX;
+    slider.scrollLeft = startScroll - dx;
+  });
+}
+
+/* -------------------- Modal -------------------- */
+const modal = document.getElementById("modal");
+const modalClose = document.getElementById("modalClose");
+const modalBack = document.getElementById("modalBack");
+const modalKicker = document.getElementById("modalKicker");
+const modalTitle = document.getElementById("modalTitle");
+const modalText = document.getElementById("modalText");
+const modalPills = document.getElementById("modalPills");
+const modalMedia = document.getElementById("modalMedia");
+
+function openModal(p){
+  modalKicker.textContent = lang === "de" ? "Projekt" : "Project";
+  modalTitle.textContent = (p.title[lang] || p.title.de);
+  modalText.textContent = (p.text[lang] || p.text.de);
+  modalPills.innerHTML = p.tags.map(tg=>`<span class="pill">${esc(tg.toUpperCase())}</span>`).join("");
+
+  const seed = ((p.title.de || "").length * 13) % 10;
+  modalMedia.style.background =
+    `radial-gradient(650px 300px at 20% 30%, rgba(120,150,255,${0.18 + seed/80}), transparent 60%),
+     radial-gradient(650px 300px at 80% 20%, rgba(255,180,107,${0.14 + seed/90}), transparent 62%),
+     radial-gradient(900px 420px at 50% 90%, rgba(124,255,200,${0.10 + seed/100}), transparent 65%),
+     linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,0))`;
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(){
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden","true");
+  document.body.style.overflow = "";
+}
+
+if(modalClose) modalClose.addEventListener("click", closeModal);
+if(modalBack) modalBack.addEventListener("click", closeModal);
+if(modal) modal.addEventListener("click", (e)=> { if(e.target === modal) closeModal(); });
+document.addEventListener("keydown", (e)=> { if(e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
+
+function bindPortfolioClicks(){
+  document.querySelectorAll("[data-work]").forEach(el => {
+    el.addEventListener("click", () => {
+      const idx = Number(el.getAttribute("data-work"));
+      const p = PORTFOLIO[idx];
+      if(p) openModal(p);
+    });
+  });
+}
+
+/* -------------------- Language buttons -------------------- */
+function bindLangButtons(){
+  const ids = ["langDE","mLangDE"];
+  const ids2 = ["langEN","mLangEN"];
+  ids.forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.addEventListener("click", ()=> setLang("de"));
+  });
+  ids2.forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.addEventListener("click", ()=> setLang("en"));
+  });
+}
+
+/* -------------------- Mobile nav -------------------- */
+const burger = document.getElementById("burger");
+const mobileNav = document.getElementById("mobileNav");
+
+function openMobileNav(){
+  mobileNav.classList.add("open");
+  mobileNav.setAttribute("aria-hidden","false");
+  burger.setAttribute("aria-expanded","true");
+}
+function closeMobileNav(){
+  mobileNav.classList.remove("open");
+  mobileNav.setAttribute("aria-hidden","true");
+  burger.setAttribute("aria-expanded","false");
+}
+if(burger){
+  burger.addEventListener("click", ()=>{
+    const open = burger.getAttribute("aria-expanded") === "true";
+    open ? closeMobileNav() : openMobileNav();
+  });
+}
+if(mobileNav){
+  mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMobileNav));
+}
+
+/* -------------------- Particles canvas -------------------- */
+const canvas = document.getElementById("fx-canvas");
+const ctx = canvas.getContext("2d", { alpha:true });
+
+let W=0,H=0, DPR=1;
+function resize(){
+  DPR = Math.min(2, window.devicePixelRatio || 1);
+  W = canvas.width = Math.floor(window.innerWidth * DPR);
+  H = canvas.height = Math.floor(window.innerHeight * DPR);
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+}
+window.addEventListener("resize", resize);
+resize();
+
+const particles = [];
+const COUNT = 60;
+function rand(min,max){ return Math.random()*(max-min)+min; }
+
+for(let i=0;i<COUNT;i++){
+  particles.push({
+    x: rand(0,W), y: rand(0,H),
+    vx: rand(-0.18,0.18)*DPR, vy: rand(-0.12,0.12)*DPR,
+    r: rand(1.2,2.4)*DPR,
+    a: rand(0.15,0.55),
+    hue: rand(190,45)
+  });
+}
+
+let mx = W*0.5, my = H*0.35;
+window.addEventListener("mousemove", (e)=>{
+  mx = e.clientX * DPR;
+  my = e.clientY * DPR;
+});
+
+function tick(){
+  ctx.clearRect(0,0,W,H);
+
+  const g = ctx.createRadialGradient(mx,my, 0, mx,my, Math.max(W,H)*0.6);
+  g.addColorStop(0, "rgba(120,150,255,0.08)");
+  g.addColorStop(0.6, "rgba(255,180,107,0.03)");
+  g.addColorStop(1, "rgba(0,0,0,0)");
+  ctx.fillStyle = g;
+  ctx.fillRect(0,0,W,H);
+
+  for(let i=0;i<particles.length;i++){
+    const p = particles[i];
+    p.x += p.vx; p.y += p.vy;
+
+    if(p.x < -20) p.x = W+20;
+    if(p.x > W+20) p.x = -20;
+    if(p.y < -20) p.y = H+20;
+    if(p.y > H+20) p.y = -20;
+
+    ctx.beginPath();
+    ctx.fillStyle = `hsla(${p.hue}, 90%, 70%, ${p.a})`;
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fill();
+
+    for(let j=i+1;j<particles.length;j++){
+      const q = particles[j];
+      const dx = p.x-q.x, dy=p.y-q.y;
+      const d = Math.sqrt(dx*dx+dy*dy);
+      if(d < 140*DPR){
+        ctx.strokeStyle = `rgba(234,240,255,${0.05 * (1 - d/(140*DPR))})`;
+        ctx.lineWidth = 1*DPR;
+        ctx.beginPath();
+        ctx.moveTo(p.x,p.y);
+        ctx.lineTo(q.x,q.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  requestAnimationFrame(tick);
+}
+tick();

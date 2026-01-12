@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IX Design – Laser, CNC, 3D-Druck, Sublimation, Stickerei</title>
+  <meta name="description" content="IX Design: Laser, CNC, 3D-Druck, Sublimation, Stickerei, Prototyping, Packaging und Werbung auf Produkten – aus Hamburg." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- Dynamic background -->
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#/" aria-label="Start">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="brand-name">IX Design</div>
+          <div class="brand-sub" data-t="brandSub">Laser · CNC · 3D-Druck · Sublimation · Stickerei · Prototyping</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="#/" data-t="navHome">Start</a>
+        <a href="#/services" data-t="navServices">Leistungen</a>
+        <a href="#/portfolio" data-t="navPortfolio">Portfolio</a>
+        <a href="#/about" data-t="navAbout">Über uns</a>
+        <a href="#/contact" data-t="navContact">Kontakt</a>
+      </nav>
+
+      <div class="actions">
+        <div class="lang">
+          <button class="lang-btn" id="langDE" aria-label="Deutsch">DE</button>
+          <button class="lang-btn" id="langEN" aria-label="English">EN</button>
+        </div>
+        <a class="btn ghost" href="#/contact" data-t="btnContact">Kontakt</a>
+        <a class="btn primary" href="#/contact" data-t="btnRequest">Projekt anfragen</a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <div class="mobile-row">
+        <div class="lang">
+          <button class="lang-btn" id="mLangDE" aria-label="Deutsch">DE</button>
+          <button class="lang-btn" id="mLangEN" aria-label="English">EN</button>
+        </div>
+      </div>
+      <a href="#/" class="m-item" data-t="navHome">Start</a>
+      <a href="#/services" class="m-item" data-t="navServices">Leistungen</a>
+      <a href="#/portfolio" class="m-item" data-t="navPortfolio">Portfolio</a>
+      <a href="#/about" class="m-item" data-t="navAbout">Über uns</a>
+      <a href="#/contact" class="m-item" data-t="navContact">Kontakt</a>
+      <a href="#/contact" class="m-item m-cta" data-t="btnRequest">Projekt anfragen</a>
+      <a href="#/impressum" class="m-item" data-t="navImpressum">Impressum</a>
+      <a href="#/datenschutz" class="m-item" data-t="navPrivacy">Datenschutz</a>
+    </div>
+  </header>
+
+  <!-- App -->
+  <main class="main">
+    <div class="container">
+      <div id="app" class="route"></div>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand">IX Design</div>
+            <div class="footer-sub" data-t="footerSub">Design & Fertigung in Hamburg</div>
+          </div>
+          <div class="footer-links">
+            <a href="#/impressum" data-t="navImpressum">Impressum</a>
+            <a href="#/datenschutz" data-t="navPrivacy">Datenschutz</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-top">
+        <div>
+          <div class="modal-kicker" id="modalKicker">Projekt</div>
+          <div class="modal-title" id="modalTitle">Titel</div>
+        </div>
+        <button class="btn ghost" id="modalClose" data-t="close">Schließen</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media" id="modalMedia">
+          <div class="media-badge" data-t="mediaPlaceholder">Platzhalter – später Canva/Foto</div>
+        </div>
+        <div class="modal-info">
+          <div class="modal-text" id="modalText"></div>
+          <div class="pill-row" id="modalPills"></div>
+          <div class="modal-actions">
+            <a class="btn primary" href="#/contact" id="modalCTA" data-t="modalCTA">Ähnliches Projekt anfragen</a>
+            <button class="btn ghost" id="modalBack" data-t="back">Zurück</button>
+          </div>
+          <div class="hint" data-t="modalHint">
+            Hinweis: Bilder sind Platzhalter. Später echte Bilder einsetzen (Canva-Export oder Fotos).
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
